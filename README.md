@@ -111,8 +111,13 @@ pnpm build
 ## Benchmark result
 | Benchmark | Result | Notes |
 | --- | --- | --- |
-| `pnpm bench:cache-hit` | pass | 1 test, 629ms |
-| cache-hit benchmark scenario | hit rate `5/6 = 83.33%` | 1 warm request, 5 measured requests |
+| `pnpm bench:cache-hit` | pass | seq + burst summaries for 10 / 100 / 1000 requests |
+| 10 seq | `hitRate 0.9` | `avgMs 0.030`, `p95Ms 0.166` |
+| 10 burst | `hitRate 0.8` | `avgMs 0.059`, `p95Ms 0.111` |
+| 100 seq | `hitRate 0.99` | `avgMs 0.0038`, `p95Ms 0.0048` |
+| 100 burst | `hitRate 0.98` | `avgMs 0.257`, `p95Ms 0.347` |
+| 1000 seq | `hitRate 0.999` | `avgMs 0.0022`, `p95Ms 0.0037` |
+| 1000 burst | `hitRate 0.998` | `avgMs 1.432`, `p95Ms 2.201` |
 
 ## Swagger / OpenAPI
 - JSON: `/api/openapi`
