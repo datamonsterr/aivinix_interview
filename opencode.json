@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["REQUIREMENTS.md", "SPEC.md", "SYSTEM_DESIGN.md"],
+  "skills": {
+    "paths": [".opencode/skills"]
+  },
+  "agent": {
+    "read-online-docs": {
+      "mode": "subagent",
+      "description": "Use when docs or current library/API behavior must be checked online before implementation.",
+      "permission": "allow",
+      "prompt": "You are the docs researcher. Use context7 first for official docs, then webfetch for current opencode and project-relevant docs. Return concise, cited notes only."
+    },
+    "write-test": {
+      "mode": "subagent",
+      "description": "Use when writing tests with strict TDD across unit, integration, and e2e layers.",
+      "permission": "allow",
+      "prompt": "You are the test writer. Follow TDD. Write failing tests first, then minimal implementation targets. Cover unit, integration, and e2e layers with the smallest useful test pyramid."
+    }
+  },
+  "permission": "allow"
+}
